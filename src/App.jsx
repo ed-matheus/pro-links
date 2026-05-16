@@ -50,7 +50,7 @@ function App() {
   return (
     <div className='flex flex-col justify-center items-center h-screen'>
       {/* Meu avatar */}
-      <div className='rounded-full overflow-hidden border border-blue-600 shadow-[0_0px_20px_0px_rgba(21,93,252,0.6)] w-22 h-22'>
+      <div className='rounded-full overflow-hidden border border-blue-600 shadow-[0_0px_20px_0px_rgba(21,93,252,0.6)] w-22 h-22 mb-2'>
         <img
           src="./avatar.jpg"
           alt="foto do Matheus"
