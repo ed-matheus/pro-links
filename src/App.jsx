@@ -1,121 +1,94 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 
+// Components
+import CardLink from './components/CardLink'
+
+// Icons
+import { CgDesktop } from "react-icons/cg";
+import { FaBehance } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaRegEnvelope } from "react-icons/fa";
+
 function App() {
-  const [count, setCount] = useState(0)
+  const info = [
+    {
+      icon: CgDesktop,
+      iconColor: '#094DD8',
+      color: '#094DD8',
+      title: 'Meu site | Portfólio',
+      desc: 'Conheça meus projetos',
+      link: 'https://ed-matheus-portfolio.vercel.app/'
+    },
+    {
+      icon: FaBehance,
+      iconColor: '#0E1423',
+      color: '#f7f9f7',
+      title: 'Portfólio de Design',
+      desc: 'Projetos visuais e identidade',
+      link: 'https://www.behance.net/edmatheus_design'
+    },
+    {
+      icon: FaWhatsapp,
+      iconColor: '#14AF50',
+      color: '#14AF50',
+      title: 'WhatsApp',
+      desc: 'Fale comigo diretamente',
+      link: ''
+    },
+    {
+      icon: FaRegEnvelope,
+      iconColor: '#F08901',
+      color: '#F08901',
+      title: 'E-mail',
+      desc: 'Entre em contato por e-mail',
+      link: ''
+    }
+  ]
+
+  console.log(info)
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className='flex flex-col justify-center items-center h-screen'>
+      {/* Meu avatar */}
+      <div className='rounded-full overflow-hidden border border-blue-600 shadow-[0_0px_20px_0px_rgba(21,93,252,0.6)] w-22 h-22'>
+        <img
+          src="./avatar.jpg"
+          alt="foto do Matheus"
+          className='w-100 h-25'
+        />
+      </div>
 
-      <div className="ticks"></div>
+      {/* @edmatheuss.web */}
+      <span className='text-[#f7f9f7] text-xl'>
+        @edmatheuss
+        <span className='text-blue-500'>.web</span>
+      </span>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <div className='border border-blue-600 w-10 my-4'></div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <div className='flex flex-col justify-center items-center gap-3 mb-10'>
+        <h3 className='text-blue-500 font-medium'>Tecnólogo em Design de Mídias Digitais</h3>
+        <p className='text-[#f7f9f7] text-sm w-75'>
+          Uno a criatividade do Design Digital com a precisão
+          do desenvolvimento web para impulsionar o seu negócio.
+        </p>
+      </div>
+
+      <div className='flex flex-col gap-2.5'>
+        {info.map((link, index) => (
+          <CardLink
+            key={index}
+            icon={link.icon}
+            iconColor={link.iconColor}
+            color={link.color}
+            title={link.title}
+            desc={link.desc}
+            link={link.link}
+          />
+        ))}
+      </div>
+
+    </div>
   )
 }
 
