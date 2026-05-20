@@ -45,7 +45,7 @@ function App() {
     }
   ]
 
-  console.log(info)
+  // console.log(info)
 
   return (
     <div className='flex flex-col justify-center items-center h-screen bg-[url(./gpt-background.png)] bg-no-repeat bg-cover bg-center'>
